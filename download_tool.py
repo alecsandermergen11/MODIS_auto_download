@@ -27,7 +27,7 @@ def main():
     # --- 2. Selecionar AOIs ---
     shapefiles = find_shapefiles()
     if not shapefiles:
-        sys.exit(1) 
+        sys.exit(1)
 
     selected_aoi_basenames = questionary.checkbox(
         "Quais Áreas de Interesse (AOI) você quer usar? (Use ESPAÇO para selecionar)",
@@ -46,14 +46,14 @@ def main():
         except ValueError:
             return "Formato inválido. Use AAAA-MM-DD"
 
-    start_date = questionary.text(
+    start_date = questionary.text( 
         "Digite a data de INÍCIO (AAAA-MM-DD):",
         validate=is_valid_date,
         default='2001-01-01'
     ).ask()
 
     end_date = questionary.text(
-        "Digite a data de FIM (AAAA-MM-DD):",
+        "Digite a data de FIM (AAAA-MM-DD):", 
         validate=is_valid_date,
         default=datetime.now().strftime('%Y-%m-%d')
     ).ask()

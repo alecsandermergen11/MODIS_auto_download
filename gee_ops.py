@@ -16,13 +16,13 @@ sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
 # Mapeia um nome amigável para os detalhes da coleção no GEE
 MODIS_COLLECTIONS = {
     # --- Vegetação (NDVI / EVI) ---
-    'NDVI_16Day_250m (MOD13Q1)': {
+    'NDVI_16Day_250m_Terra (MOD13Q1)': {
         'id': 'MODIS/061/MOD13Q1',
         'bands': ['NDVI'],
         'scale_factor': 0.0001,
         'scale_proj': 250
     },
-    'EVI_16Day_250m (MOD13Q1)': {
+    'EVI_16Day_250m_Terra (MOD13Q1)': {
         'id': 'MODIS/061/MOD13Q1',
         'bands': ['EVI'],
         'scale_factor': 0.0001,
@@ -30,38 +30,38 @@ MODIS_COLLECTIONS = {
     },
     
     # --- Evapotranspiração (ET) ---
-    'ET_Evapotranspiration_8Day_500m (MOD16A2)': {
+    'ET_Evapotranspiration_8Day_500m_Terra (MOD16A2)': {
         'id': 'MODIS/061/MOD16A2',
         'bands': ['ET'],
         'scale_factor': 0.1,
         'scale_proj': 500
     },
-    'LE_Latente_heat_flux_ET_8Day_500m (MOD16A2)': {
+    'LE_Latente_heat_flux_ET_8Day_500m_Terra (MOD16A2)': {
         'id': 'MODIS/061/MOD16A2',
         'bands': ['LE'],
         'scale_factor': 10000,
         'scale_proj': 500
     },
-    'PET_Potential_ET_8Day_500m (MOD16A2)': {
+    'PET_Potential_ET_8Day_500m_Terra (MOD16A2)': {
         'id': 'MODIS/061/MOD16A2',
         'bands': ['PET'],
         'scale_factor': 0.1,
         'scale_proj': 500
     },
 
-    'ET_Evapotranspiration_8Day_500m_GF (MOD16A2GF)': {
+    'ET_Evapotranspiration_8Day_500m_GF_Terra (MOD16A2GF)': {
         'id': 'MODIS/061/MOD16A2GF',
         'bands': ['ET'],
         'scale_factor': 0.1,
         'scale_proj': 500
     },
-    'LE_Latente_heat_flux_ET_8Day_500m_GF (MOD16A2GF)': {
+    'LE_Latente_heat_flux_ET_8Day_500m_GF_Terra (MOD16A2GF)': {
         'id': 'MODIS/061/MOD16A2GF',
         'bands': ['LE'],
         'scale_factor': 10000,
         'scale_proj': 500
     },
-    'PET_Potential_ET_8Day_500m_GF (MOD16A2GF)': {
+    'PET_Potential_ET_8Day_500m_GF_Terra (MOD16A2GF)': {
         'id': 'MODIS/061/MOD16A2GF',
         'bands': ['PET'],
         'scale_factor': 0.1,
@@ -69,13 +69,13 @@ MODIS_COLLECTIONS = {
     },
 
     # --- Temperatura da Superfície (LST) ---
-    'LST_Day_Daily_1km (MOD11A1)': {
+    'LST_Day_Daily_1km_Terra (MOD11A1)': {
         'id': 'MODIS/061/MOD11A1',
         'bands': ['LST_Day_1km'],
         'scale_factor': 0.02,  # Converte para Kelvin
         'scale_proj': 1000
     },
-    'LST_Night_Daily_1km (MOD11A1)': {
+    'LST_Night_Daily_1km_Terra (MOD11A1)': {
         'id': 'MODIS/061/MOD11A1',
         'bands': ['LST_Night_1km'],
         'scale_factor': 0.02, # Converte para Kelvin
@@ -83,13 +83,13 @@ MODIS_COLLECTIONS = {
     },
 
         # --- Temperatura da Superfície (LST) ---
-    'LST_Day_8day_1km (MOD11A2)': {
+    'LST_Day_8day_1km_Terra (MOD11A2)': {
         'id': 'MODIS/061/MOD11A2',
         'bands': ['LST_Day_1km'],
         'scale_factor': 0.02,  # Converte para Kelvin
         'scale_proj': 1000
     },
-    'LST_Night_8day_1km (MOD11A2)': {
+    'LST_Night_8day_1km_Terra (MOD11A2)': {
         'id': 'MODIS/061/MOD11A2',
         'bands': ['LST_Night_1km'],
         'scale_factor': 0.02, # Converte para Kelvin
@@ -97,21 +97,30 @@ MODIS_COLLECTIONS = {
     },
 
     # --- LAI / FPAR ---
-    'LAI_8Day_500m (MOD15A2H)': {
+    'LAI_8Day_500m_Terra (MOD15A2H)': {
         'id': 'MODIS/061/MOD15A2H',
         'bands': ['Lai_500m'],
         'scale_factor': 0.1,
         'scale_proj': 500
     },
-    'FPAR_8Day_500m (MOD15A2H)': {
+    'FPAR_8Day_500m_Terra (MOD15A2H)': {
         'id': 'MODIS/061/MOD15A2H',
         'bands': ['Fpar_500m'],
         'scale_factor': 0.01,
         'scale_proj': 500
     },
+
+    'PAR_Daily_3-hours_500m (MCD18C2)': {
+        'id': 'MODIS/062/MCD18C2',
+        'bands': ['GMT_0000_PAR', 'GMT_0300_PAR', 'GMT_0600_PAR',
+                  'GMT_0900_PAR', 'GMT_1200_PAR', 'GMT_1500_PAR',
+                  'GMT_1800_PAR', 'GMT_2100_PAR'],
+        'scale_factor': 1,
+        'scale_proj': 500
+    },
     
     # --- Cobertura de Neve ---
-    'SnowCover_Daily_500m (MOD10A1)': {
+    'SnowCover_Daily_500m_Terra (MOD10A1)': {
         'id': 'MODIS/061/MOD10A1',
         'bands': ['NDSI_Snow_Cover'],
         'scale_factor': 1, # É porcentagem
@@ -119,7 +128,7 @@ MODIS_COLLECTIONS = {
     },
     
     # --- Área Queimada ---
-    'BurnedArea_Monthly_500m (MCD64A1)': {
+    'BurnedArea_Monthly_500m_Terra (MCD64A1)': {
         'id': 'MODIS/061/MCD64A1',
         'bands': ['BurnDate'], # Dia do ano
         'scale_factor': 1,
@@ -127,7 +136,7 @@ MODIS_COLLECTIONS = {
     },
     
     # --- Cobertura da Terra ---
-    'LandCover_Type1_Yearly_500m (MCD12Q1)': {
+    'LandCover_Type1_Yearly_500m_Terra (MCD12Q1)': {
         'id': 'MODIS/061/MCD12Q1',
         'bands': ['LC_Type1'], # Classificação IGBP
         'scale_factor': 1,
@@ -135,8 +144,106 @@ MODIS_COLLECTIONS = {
     },
 
     # --- Cobertura da Terra ---
-    'Gross_primary_production_GPP_8day_500m (MOD17A2HGF)': {
+    'Gross_primary_production_GPP_8day_500m_Terra (MOD17A2HGF)': {
         'id': 'MODIS/061/MOD17A2HGF',
+        'bands': ['Gpp'], # GPP
+        'scale_factor': 0.0001,
+        'scale_proj': 500
+    },
+
+    'water_mask_250m_Terra (MOD44W)': {
+        'id': 'MODIS/006/MOD44W',
+        'bands': ['water_mask'], # GPP
+        'scale_factor': 1,
+        'scale_proj': 250
+    },
+    # --- Vegetação (NDVI / EVI) ---
+    'NDVI_16Day_250m_Aqua (MYD13Q1)': {
+        'id': 'MODIS/061/MYD13Q1',
+        'bands': ['NDVI'],
+        'scale_factor': 0.0001,
+        'scale_proj': 250
+    },
+    'EVI_16Day_250m_Aqua (MYD13Q1)': {
+        'id': 'MODIS/061/MYD13Q1',
+        'bands': ['EVI'],
+        'scale_factor': 0.0001,
+        'scale_proj': 250
+    },
+    
+    # --- Evapotranspiração (ET) ---
+    'ET_Evapotranspiration_8Day_500m_Aqua (MYD16A2)': {
+        'id': 'MODIS/061/MYD16A2',
+        'bands': ['ET'],
+        'scale_factor': 0.1,
+        'scale_proj': 500
+    },
+    'LE_Latente_heat_flux_ET_8Day_500m_Aqua (MYD16A2)': {
+        'id': 'MODIS/061/MYD16A2',
+        'bands': ['LE'],
+        'scale_factor': 10000,
+        'scale_proj': 500
+    },
+    'PET_Potential_ET_8Day_500m_Aqua (MYD16A2)': {
+        'id': 'MODIS/061/MYD16A2',
+        'bands': ['PET'],
+        'scale_factor': 0.1,
+        'scale_proj': 500
+    },
+
+    # --- Temperatura da Superfície (LST) ---
+    'LST_Day_Daily_1km_Aqua (MYD11A1)': {
+        'id': 'MODIS/061/MYD11A1',
+        'bands': ['LST_Day_1km'],
+        'scale_factor': 0.02,  # Converte para Kelvin
+        'scale_proj': 1000
+    },
+    'LST_Night_Daily_1km_Aqua (MYD11A1)': {
+        'id': 'MODIS/061/MYD11A1',
+        'bands': ['LST_Night_1km'],
+        'scale_factor': 0.02, # Converte para Kelvin
+        'scale_proj': 1000
+    },
+
+        # --- Temperatura da Superfície (LST) ---
+    'LST_Day_8day_1km_Aqua (MYD11A2)': {
+        'id': 'MODIS/061/MYD11A2',
+        'bands': ['LST_Day_1km'],
+        'scale_factor': 0.02,  # Converte para Kelvin
+        'scale_proj': 1000
+    },
+    'LST_Night_8day_1km_Aqua (MYD11A2)': {
+        'id': 'MODIS/061/MYD11A2',
+        'bands': ['LST_Night_1km'],
+        'scale_factor': 0.02, # Converte para Kelvin
+        'scale_proj': 1000
+    },
+
+    # --- LAI / FPAR ---
+    'LAI_8Day_500m_Aqua (MYD15A2H)': {
+        'id': 'MODIS/061/MYD15A2H',
+        'bands': ['Lai_500m'],
+        'scale_factor': 0.1,
+        'scale_proj': 500
+    },
+    'FPAR_8Day_500m_Aqua (MYD15A2H)': {
+        'id': 'MODIS/061/MYD15A2H',
+        'bands': ['Fpar_500m'],
+        'scale_factor': 0.01,
+        'scale_proj': 500
+    },
+    
+    # --- Cobertura de Neve ---
+    'SnowCover_Daily_500m_Aqua (MYD10A1)': {
+        'id': 'MODIS/061/MYD10A1',
+        'bands': ['NDSI_Snow_Cover'],
+        'scale_factor': 1, # É porcentagem
+        'scale_proj': 500
+    },
+
+    # --- Cobertura da Terra ---
+    'Gross_primary_production_GPP_8day_500m_Aqua (MYD17A2H)': {
+        'id': 'MODIS/061/MYD17A2H',
         'bands': ['Gpp'], # GPP
         'scale_factor': 0.0001,
         'scale_proj': 500
